@@ -8,7 +8,9 @@
   "systems": [
     "expanse"
   ],
-  "scripts": [],
+  "scripts": [
+      "./scripts/expanse-french.js"
+  ],
   "styles": [],
   "templates": [
       "./templates/dialog/damageModifiers.html",
