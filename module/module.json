@@ -1,0 +1,38 @@
+{
+  "name": "expanse-french",
+  "title": "The Expanse rpg french localization",
+  "description": "Traduction française pour le système The Expanse Rpg de Foxfyre",
+  "author": "Kadus",
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.8.9",
+  "systems": [
+    "expanse"
+  ],
+  "scripts": [],
+  "styles": [],
+  "templates": [
+      "./templates/dialog/damageModifiers.html",
+      "./templates/dialog/income.html",
+      "./templates/dialog/rollModifiers.html",
+      "./templates/dialog/target-number.html",
+      "./templates/sheet/armor-sheet.html",
+      "./templates/sheet/character-sheet.html",
+      "./templates/sheet/item-sheet.html",
+      "./templates/sheet/npc-sheet.html",
+      "./templates/sheet/shield-sheet.html",
+      "./templates/sheet/ship-sheet.html",
+      "./templates/sheet/stunt-sheet.html",
+      "./templates/sheet/talent-sheet.html",
+      "./templates/sheet/weapon-sheet.html"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "./lang/fr.json"
+    }
+  ],
+  "url": "",
+  "manifest": "",
+  "download": ""
+}
