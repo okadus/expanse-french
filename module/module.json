@@ -32,7 +32,7 @@
       "path": "./lang/fr.json"
     }
   ],
-  "url": "",
-  "manifest": "",
-  "download": ""
+  "url": "https://github.com/okadus/expanse-french",
+  "manifest": "https://raw.githubusercontent.com/okadus/expanse-french/main/module/module.json",
+  "download": "https://github.com/okadus/expanse-french/archive/refs/heads/main.zip"
 }
