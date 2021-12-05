@@ -1,0 +1,91 @@
+<form class="{{cssClass}} item" autocomplete="off">
+
+    <div class="weapons-box">
+        <div class="weapons-header-box">
+            <div class="weapons-header-block">
+                <input name="name" type="text" value="{{name}}" data-dtype="String" />
+            </div>
+        </div>
+
+        <div class="item weapons-block">
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.Type"}}</span>
+                <span class="">{{localize "EXPANSE.weapon.DamageDice"}}</span>
+                <span class="">{{localize "EXPANSE.weapon.Modifier"}}</span>
+            </div>
+
+            <div class="weapons-detail-box">
+
+                <div class="weapons-attribute">
+                    <select type="text" name="data.type" data-dtype="String">
+                        {{#select data.type}}
+                        <option value="unarmed" mod-type="fighting">{{localize "EXPANSE.weapon.type.Unarmed"}}</option>
+                        <option value="makeshift" mod-type="fighting">{{localize "EXPANSE.weapon.type.Makeshift"}}</option>
+                        <option value="light_melee" mod-type="fighting">{{localize "EXPANSE.weapon.type.LightMelee"}}</option>
+                        <option value="heavy_melee" mod-type="fighting">{{localize "EXPANSE.weapon.type.HeavyMelee"}}</option>
+                        <option value="pistol" mod-type="accuracy">{{localize "EXPANSE.weapon.type.Pistol"}}</option>
+                        <option value="rifle" mod-type="accuracy">{{localize "EXPANSE.weapon.type.Rifle"}}</option>
+                        <option value="grenade">{{localize "EXPANSE.weapon.type.Grenade"}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+
+                <div class="weapons-attribute">
+                    <input class="weapons-attribute-input" type="number" name="data.damage" value="{{data.damage}}" />
+                    <span>
+                        D6
+                    </span>
+                </div>
+
+                <div class="weapons-attribute">
+                    <select type="text" name="data.modifier" value="{{data.modifier}}" data-dtype="String">
+                        {{#select data.modifier}}
+                        <option value="None">{{localize "EXPANSE.weapon.modifier.None"}}</option>
+                        <option value="Strength">{{localize "EXPANSE.weapon.modifier.Strength"}}</option>
+                        <option value="Dexterity">{{localize "EXPANSE.weapon.modifier.Dexterity"}}</option>
+                        <option value="Perception">{{localize "EXPANSE.weapon.modifier.Perception"}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="item weapons-block">
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.weapon.Qualities"}}</span>
+                <span class="">{{localize "EXPANSE.weapon.Range"}}</span>
+                <span class="">{{localize "EXPANSE.weapon.MaxRange"}}</span>
+                <span class="">{{localize "EXPANSE.Cost"}}</span>
+            </div>
+
+            <div class="weapons-detail-box">
+                <div class="weapons-attribute">
+                    <input type="text" name="data.quality" value="{{data.quality}}" data-dtype="String" />
+                </div>
+
+                <div class="weapons-attribute">
+                    <input type="text" name="data.rangemin" value="{{data.rangemin}}" data-dtype="String" />
+                </div>
+
+                <div class="weapons-attribute">
+                    <input type="text" name="data.rangemax" value="{{data.rangemax}}" data-dtype="String" />
+                </div>
+
+                <div class="weapons-attribute">
+                    <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="Number" />
+                </div>
+            </div>
+        </div>
+
+        <div class="weapons-desc-block">
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.Description"}}</span>
+            </div>
+            <div class="weapons-desc-box">
+                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+
+    </div>
+
+</form>

@@ -1,0 +1,172 @@
+<form class="{{cssClass}} item" autocomplete="off">
+
+    <div class="npc-box" data-tab="npc">
+
+        <div class="npc-header-box">
+
+            <div class="npc-header-block">
+                <span>
+                    <input type="text" name="name" value="{{name}}" data-dtype="String" />
+                </span>
+            </div>
+
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.Npc.AbilitiesFocuses" }}</span>
+            </div>
+
+        </div>
+ 
+        <div class="npc-ability-block">
+            {{#each abilities as |ability key|}}
+            <div class="npc-ability" data-item-id="{{item.id}}">
+                <span class="npc-ability-name rollable" data-roll="3d6+@abilities.{{key}}.rating"
+                    data-label="{{key}}"><b>{{localize (concat "EXPANSE.Npc." key) }}</b></span>
+                <div class="npc-ability-value">
+                    <input type="text" name="data.abilities.{{key}}.rating" value="{{rating}}" data-dtype="Number" />
+                </div>
+                <div class="npc-ability-focus">
+                    <input type="text" name="data.abilities.{{key}}.focus" value="{{focus}}" data-dtype="String" />
+                </div>
+                <div class="npc-ability-usefocus">
+                    <input type="checkbox" class="expanse-checkbox" name="data.abilities.{{key}}.useFocus" {{checked
+                        useFocus}}>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="npc-attribute-block">
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.Npc.Speed" }}</span>
+                <span class="">{{localize "EXPANSE.Npc.Fortune" }}</span>
+                <span class="">{{localize "EXPANSE.Npc.Defense" }}</span>
+                <span class="">{{localize "EXPANSE.Npc.Ar+Tou" }}</span>
+            </div>
+
+            <div class="npc-attributes-box">
+                {{#each attributes as |attribute key|}}
+                <div class="npc-attribute-value">
+                    <input type="text" name="data.attributes.{{key}}.value" value="{{value}}" data-dtype="Number" />
+                </div>
+                {{/each}}
+            </div>
+
+        </div>
+
+        <div class="npc-weapon-box">
+
+            <ul class="items npc-weapon-list">
+                <div class="box-header">
+                    <span>{{localize "EXPANSE.Npc.Weapon" }}</span>
+                    <span>{{localize "EXPANSE.Npc.Damage" }}</span>
+                    <span>{{localize "EXPANSE.Npc.AttackBonus" }}</span>
+                    <span>Focus</span>
+                    <span>{{localize "EXPANSE.Npc.Hit" }}</span>
+                    <span>{{localize "EXPANSE.Npc.DamageRoll" }}</span>
+                    <span></span>
+                </div>
+
+                {{#each weapon as |weapon id|}}
+                <li class="item npc-weapon" data-item-id="{{weapon.id}}">
+                    <div class="npc-weapon-row">
+                        <div class="npc-weapon-list-item">
+                            {{weapon.data.name}}
+                        </div>
+
+                        <div class="npc-weapon-list-item">
+                            {{weapon.data.data.damage}}D6{{#if
+                            weapon.data.data.hasBonusDamage}}+{{weapon.data.data.bonusDamage}}{{/if}}
+                        </div>
+
+                        <div class="npc-weapon-list-item">
+                            {{weapon.data.data.attack}}
+                        </div>
+                        <!-- route bonus through prepData pick up bonus used in mod + if relavant focus is checked-->
+
+                        <div class="npc-weapon-list-item">
+                            <input type="checkbox" class="expanse-checkbox weapon-usefocus" name="weapon.data.data.usefocus"
+                                data-item-id={{weapon.id}} {{checked weapon.data.data.usefocus}}>
+                        </div>
+
+                        <div class="weapon-list-item">
+                            <div class="roll-button npc-attack" data-roll="weapon-attack"
+                                data-item-id="{{weapon.id}}"
+                                data-item-abil="{{weapon.data.data.tohitabil}}"></div>
+                        </div>
+
+                        <div class="weapon-list-item">
+                            <div class="roll-button npc-damage" data-roll="weapon-damage"
+                                data-item-id="{{weapon.id}}"
+                                data-item-abil="{{weapon.data.data.tohitabil}}"></div>
+                        </div>
+
+                        <div class="item-controls npc-weapon-list-item">
+                            <a class="item-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="npc-specials-block">
+            <div class="box-header">
+                <span class="">{{localize "EXPANSE.Npc.SpecialFeatures" }}</span>
+            </div>
+            <div class="npc-special-box">
+                <div class="npc-special-rows">
+                    <span>{{localize "EXPANSE.Npc.Stunts" }}:</span>
+                    <input type="text" name="data.stunts" value="{{stunts}}" data-dtype="String" />
+                </div>
+                <div class="npc-special-rows">
+                    <span>{{localize "EXPANSE.Npc.Talents" }}:</span>
+                    <input type="text" name="data.talent1" value="{{talent1}}" data-dtype="String" />
+                </div>
+                <div class="npc-special-rows">
+                    <input type="text" name="data.talent2" value="{{talent2}}" data-dtype="String" />
+                </div>
+                <div class="npc-special-rows">
+                    <span>{{localize "EXPANSE.Npc.Equipment" }}:</span>
+                    <input type="text" name="data.equipment1" value="{{equipment1}}" data-dtype="String" />
+                </div>
+                <div class="npc-special-rows">
+                    <input type="text" name="data.equipment2" value="{{equipment2}}" data-dtype="String" />
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="npc-notes-box">
+
+            <div class="box-header">
+                <span>{{localize "EXPANSE.Description" }}</span>
+            </div>
+ 
+            <div class="npc-notes-container">
+                {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+
+        <div class="npc-image-block">
+            <div class="box-header">
+                <span>{{localize "EXPANSE.Npc.Images" }}</span>
+            </div>
+
+            <div class="npc-images">
+                <div class="char-image">
+                    <img class="profile-img" src="{{img}}" data-edit="img" name="img" title="Character Portrait" />
+                </div>
+            </div>
+        </div>
+
+        <div class="npc-threat-footer">
+            <span>{{localize "EXPANSE.Npc.Threat" }}:</span>
+            <input type="text" name="data.threat" value="{{threat}}" data-dtype="String" />
+        </div>
+
+
+    </div>
+
+</form>  

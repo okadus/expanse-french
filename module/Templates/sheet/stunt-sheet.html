@@ -1,0 +1,43 @@
+<form class="{{cssClass}} item" autocomplete="off">
+
+    <header class="sheet-header">
+    </header>
+
+    <section class="sheet-body">
+
+        <div class="stunts" data-group="primary" data-tab="stunts">
+
+            <div class="stunts-box">
+                <div class="stunts-header-box">
+                    <div class="stunts-header-block">
+                        <span>
+                            <input type="text" name="name" value="{{name}}" data-dtype="String" />
+                        </span>
+                    </div>
+
+                    <div class="box-header">
+                        <span class="stunts-box-sp">{{localize "EXPANSE.StuntCost"}}</span>
+                        <span class="stunts-box-stunt-name">{{localize "EXPANSE.Type"}}</span>
+                        <span class="stunts-box-stunt-desc">{{localize "EXPANSE.Stunt"}}</span>
+                    </div>
+                </div>
+
+                <div class="item stunts-section" draggable="false" data-item-id="{{item.id}}">
+                    <div class="stunts-section-sp">
+                        <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="String" />
+                    </div>
+
+                    <div class="stunts-section-name">
+                        <input type="text" name="data.type" value="{{data.type}}" data-dtype="String" />
+                    </div>
+                    <div class="stunts-section-desc">
+                        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+</form> 
